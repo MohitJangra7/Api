@@ -30,7 +30,7 @@ const processArrays = (inputArray) => {
 // POST /process_array
 app.post("/bfhl", (req, res) => {
   try {
-    const inputArray = req.body.array;
+    const inputArray = req.body.data;
 
     if (!inputArray) {
       throw new Error("Invalid input. 'array' key is missing.");
