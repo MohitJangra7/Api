@@ -4,15 +4,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
 
-// Define your user ID, email, and roll number
+
 const USER_ID = "john_doe_17091999";
 const EMAIL = "john@xyz.com";
 const ROLL_NUMBER = "ABCD123";
 
-// Middleware
+
 app.use(bodyParser.json());
 
-// Process Arrays Function
+
 const processArrays = (inputArray) => {
   const evenNumbers = inputArray
     .filter((num) => num % 2 === 0 && typeof num === "number")
@@ -32,8 +32,12 @@ app.post("/bfhl", (req, res) => {
   try {
     const inputArray = req.body.array;
 
-    if (!inputArray || !Array.isArray(inputArray)) {
-      throw new Error("Invalid input. 'array' key is missing or not an array.");
+    if (!inputArray) {
+      throw new Error("Invalid input. 'array' key is missing.");
+    }
+
+    if (!Array.isArray(inputArray)) {
+      throw new Error("Invalid input. 'array' key is not an array.");
     }
 
     const { evenNumbers, oddNumbers, alphabets } = processArrays(inputArray);
@@ -59,7 +63,6 @@ app.post("/bfhl", (req, res) => {
   }
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
