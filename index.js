@@ -20,9 +20,9 @@ const processArrays = (inputArray) => {
   const oddNumbers = inputArray
     .filter((num) => num % 2 !== 0 && typeof num === "number")
     .map((num) => String(num));
-  const alphabets = inputArray.filter(
-    (char) => typeof char === "string" && char.match(/[a-zA-Z]/)
-  );
+  const alphabets = inputArray
+  .filter((char) => typeof char === "string" && char.match(/[a-zA-Z]/))
+  .map((char) => char.toUpperCase());
 
   return { evenNumbers, oddNumbers, alphabets };
 };
