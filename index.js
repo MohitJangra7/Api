@@ -28,7 +28,7 @@ const processArrays = (inputArray) => {
 };
 
 // POST /process_array
-app.post("/process_array", (req, res) => {
+app.post("/bfhl", (req, res) => {
   try {
     const inputArray = req.body.array;
 
